@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../VGA.srcs/sources_1/ip/blk_mem_palette/sim/blk_mem_palette.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
