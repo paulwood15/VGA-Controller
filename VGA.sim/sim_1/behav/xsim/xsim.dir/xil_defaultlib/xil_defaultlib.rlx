@@ -2,14 +2,14 @@
 2018.2
 Jun 14 2018
 20:41:02
-C:/Users/Paul/Documents/VGA/VGA.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.sim/sim_1/behav/xsim/glbl.v,1529022455,verilog,,,,glbl,,,,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sim_1/new/top_tb.v,1557198503,verilog,,,,top_tb,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_buffer/sim/blk_mem_buffer.v,1557200250,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_palette/sim/blk_mem_palette.v,,blk_mem_buffer,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_palette/sim/blk_mem_palette.v,1557200115,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/VGA_Controller.v,,blk_mem_palette,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v,1557246423,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_buffer/sim/blk_mem_buffer.v,,clk_wiz_0,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,1557246423,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v,,clk_wiz_0_clk_wiz,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/VGA_Controller.v,1557367419,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/counter.v,,VGA_Controller,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/counter.v,1557364620,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/top.v,,Counter,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
+C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/top.v,1557247072,verilog,,C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sim_1/new/top_tb.v,,top,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
 C:/Users/Paul/Documents/VGA/VGA.srcs/sim_1/new/mem_tb.v,1557171210,verilog,,,,mem_tb,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sim_1/new/top_tb.v,1557189311,verilog,,,,top_tb,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/blk_mem_buffer/sim/blk_mem_buffer.v,1557200250,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/blk_mem_palette/sim/blk_mem_palette.v,,blk_mem_buffer,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/blk_mem_palette/sim/blk_mem_palette.v,1557200115,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/VGA_Controller.v,,blk_mem_palette,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v,1557246423,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/blk_mem_buffer/sim/blk_mem_buffer.v,,clk_wiz_0,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,1557246423,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v,,clk_wiz_0_clk_wiz,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
 C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/Memory.v,1557188353,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/VGA_Controller.v,,Memory,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/VGA_Controller.v,1557248193,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/counter.v,,VGA_Controller,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/counter.v,1557245291,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/top.v,,Counter,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,
-C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/new/top.v,1557198497,verilog,,C:/Users/Paul/Documents/VGA/VGA.srcs/sim_1/new/top_tb.v,,top,,,../../../../VGA.srcs/sources_1/ip/clk_wiz_0,,,,,

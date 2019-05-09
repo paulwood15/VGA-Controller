@@ -37,8 +37,8 @@ module top_tb();
   top UUT 
       (
           .clk_in(tb_clk),
-          .ext_clk_en(tb_clk_en),
-          .ext_rst(tb_rst),
+          .vga_clk_en(tb_clk_en),
+          .vga_rst(tb_rst),
           .red(red),
           .blue(blue),
           .green(green),

@@ -20,16 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // SIZE: counter bit width
-// SC (startinging count): value of counter upon TC being reached
-// RC (reset count): value of counter upon reset condition
+// RC (rollover count): value of counter upon TC being reached (causing a rollover)
+// IC (initial count): initial value and value of counter upon reset condition 
 // TC (terminal count): counter value that causes a rollover
-module Counter #(parameter SIZE = 10, SC = 0, RC = 0, TC = 2**SIZE)
+module Counter #(parameter SIZE = 16, RC = 0, IC = 0, TC = 2**SIZE)
     (
     input clk,
     input clk_en,
     input rst,
-    output reg [SIZE - 1:0] count,
-    output reg TC_reached    
+    output reg [SIZE - 1:0] count = 0,
+    output reg TC_reached = 0    
     );
     
     
@@ -50,7 +50,7 @@ module Counter #(parameter SIZE = 10, SC = 0, RC = 0, TC = 2**SIZE)
             if (count < TC)
                 count <= count + 1'b1;
             else 
-                count <= SC;
+                count <= 0;
         end
         else 
             count <= count;
@@ -59,7 +59,7 @@ module Counter #(parameter SIZE = 10, SC = 0, RC = 0, TC = 2**SIZE)
     //reset logic
     always @(posedge clk) begin
         if (rst) begin
-            count <= RC;
+            count <= IC;
             TC_reached <= 1'b0; 
         end
     end

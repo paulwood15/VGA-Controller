@@ -22,8 +22,8 @@
 
 module top(
     input clk_in,
-    input ext_clk_en,
-    input ext_rst,
+    input vga_clk_en,
+    input vga_rst,
     output [3:0] red,
     output [3:0] green,
     output [3:0] blue,
@@ -35,35 +35,35 @@ module top(
     wire mmcm_mem_clk;
     wire clk_ready;
     
-    reg init_rst;
-    reg sys_rst;
+//    reg init_rst;
+//    reg sys_rst;
     
-    parameter   INIT        = 0,
-                RUNNING     = 1;
-    reg state = 1'b0;
-    reg next_state = 1'b0;
+//    parameter   INIT        = 0,
+//                RUNNING     = 1;
+//    reg state = 1'b0;
+//    reg next_state = 1'b0;
     
     
-    always @(posedge mmcm_vga_clk) begin
-        case (state)
-            INIT    :   begin
-                            init_rst <= 1;
-                            next_state <= RUNNING;
-                        end
-            RUNNING :   init_rst <= 0;
-        endcase
+//    always @(posedge mmcm_vga_clk) begin
+//        case (state)
+//            INIT    :   begin
+//                            init_rst <= 1;
+//                            next_state <= RUNNING;
+//                        end
+//            RUNNING :   init_rst <= 0;
+//        endcase
         
-        #1 state <= next_state;
-        sys_rst <= init_rst | ext_rst;
-    end
+//        #1 state <= next_state;
+//        sys_rst <= init_rst | vga_rst;
+//    end
     
     
     VGA_Controller VGA 
     (
         .vga_clk_in(mmcm_vga_clk),
         .mem_clk_in(mmcm_mem_clk),
-        .vga_clk_en(clk_ready & ext_clk_en),
-        .rst(sys_rst),
+        .vga_clk_en(clk_ready & vga_clk_en),
+        .rst(vga_rst),
         .o_red(red),
         .o_grn(green),
         .o_blu(blue),
@@ -78,7 +78,7 @@ module top(
         .mem_clk(mmcm_mem_clk),
         .clk_in1(clk_in),
         .locked(clk_ready),
-        .reset(ext_rst)
+        .reset(vga_rst)
     );
     
 endmodule
