@@ -57,7 +57,7 @@ module VGA_Controller(
                 V_BACK_PORCH_L      = 31,
                 V_SYNC_L            = 2,
                 
-                RAM_PREFETCH_CLKS   = 1,
+                RAM_PREFETCH_CLKS   = 5, // 2 for buffer + 2 for palette + 1 for output reg
                 
                 // calculated parameters - don't touch
                 H_ACTIVE_C          = H_FRONT_PORCH_C + H_BACK_PORCH_C + H_SYNC_C,
@@ -118,32 +118,32 @@ module VGA_Controller(
     end
     
     // VGA output logic
-        always @(posedge vga_clk_in) begin
-            if (rst) begin
-                // counters already have rst passed through
+    always @(posedge vga_clk_in) begin
+        if (rst) begin
+            // counters already have rst passed through
+            Hsync <= 1'b1;
+            Vsync <= 1'b1;
+        end
+        else if (vga_clk_en) begin
+            //within active frame 
+            if (in_active_frame)
+                {o_red, o_grn, o_blu} <= palette_out;
+            else
+                {o_red, o_grn, o_blu} <= BLACK;
+            
+            //horizontal sync pulse (active low)
+            if ((x_pos >= H_SYNC_START_C) && (x_pos < H_SYNC_END_C)) 
+                Hsync <= 1'b0;
+            else
                 Hsync <= 1'b1;
-                Vsync <= 1'b1;
-            end
-            else if (vga_clk_en) begin
-                //within active frame 
-                if (in_active_frame)
-                    {o_red, o_grn, o_blu} <= palette_out;
-                else
-                    {o_red, o_grn, o_blu} <= BLACK;
                 
-                //horizontal sync pulse (active low)
-                if ((x_pos >= H_SYNC_START_C) && (x_pos < H_SYNC_END_C)) 
-                    Hsync <= 1'b0;
-                else
-                    Hsync <= 1'b1;
-                    
-                    
-                //verical sync pulse (active low)
-                if ((y_pos >= V_SYNC_START_L) && (y_pos < V_SYNC_END_L)) 
-                    Vsync <= 1'b0;
-                else
-                    Vsync <= 1'b1;
-            end
+                
+            //verical sync pulse (active low)
+            if ((y_pos >= V_SYNC_START_L) && (y_pos < V_SYNC_END_L)) 
+                Vsync <= 1'b0;
+            else
+                Vsync <= 1'b1;
+        end
     end
     
     
@@ -151,7 +151,7 @@ module VGA_Controller(
     
     Counter #(10, 0, 0, H_WIDTH_C - 1) H_Counter 
         (
-            .clk(vga_clk_in),
+            .clk(!vga_clk_in),
             .clk_en(vga_clk_en),
             .rst(rst),
             .count(x_pos),
@@ -160,7 +160,7 @@ module VGA_Controller(
         
     Counter #(10, 0, 0, V_LENGTH_L) V_Counter
         (
-            .clk(vga_clk_in),
+            .clk(!vga_clk_in),
             .clk_en(vert_en),
             .rst(rst),
             .count(y_pos),
@@ -174,12 +174,13 @@ module VGA_Controller(
     // width=12, depth=16
     blk_mem_palette Color_Palette
         (
-            .addra(),
-            .clka(mem_clk_in),
-            .dina(),
+            .addra(0),
+            .clka(vga_clk_in),
+            .dina(0),
             .ena(1'b0),
+            .wea(0),
             .addrb(palette_addr),
-            .clkb(mem_clk_in),
+            .clkb(vga_clk_in),
             .doutb(palette_out),
             .enb(1'b1)
         );
@@ -187,12 +188,13 @@ module VGA_Controller(
     // width=4, depth=2^18
     blk_mem_buffer Frame_Buffer
         (
-            .addra(),
-            .clka(mem_clk_in),
-            .dina(),
+            .addra(0),
+            .clka(vga_clk_in),
+            .dina(0),
             .ena(1'b0),
+            .wea(0),
             .addrb(buffer_addr),
-            .clkb(mem_clk_in),
+            .clkb(vga_clk_in),
             .doutb(palette_addr),
             .enb(1'b1)
         );

@@ -22,15 +22,24 @@ set_property PACKAGE_PIN N18 [get_ports {blue[0]}]
 set_property PACKAGE_PIN L18 [get_ports {blue[1]}]
 set_property PACKAGE_PIN K18 [get_ports {blue[2]}]
 set_property PACKAGE_PIN J18 [get_ports {blue[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports ext_clk_en]
-set_property IOSTANDARD LVCMOS33 [get_ports ext_rst]
 set_property IOSTANDARD LVCMOS33 [get_ports Hsync]
 set_property IOSTANDARD LVCMOS33 [get_ports Vsync]
-set_property PACKAGE_PIN V17 [get_ports ext_clk_en]
-set_property PACKAGE_PIN V16 [get_ports ext_rst]
 
 set_property PACKAGE_PIN P19 [get_ports Hsync]
 set_property PACKAGE_PIN R19 [get_ports Vsync]
 
 set_property IOSTANDARD LVCMOS33 [get_ports clk_in]
 set_property PACKAGE_PIN W5 [get_ports clk_in]
+
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+set_property BITSTREAM.CONFIG.CONFIGRATE 33 [current_design]
+set_property CONFIG_MODE SPIx4 [current_design]
+
+
+set_property IOSTANDARD LVCMOS33 [get_ports vga_clk_en]
+set_property IOSTANDARD LVCMOS33 [get_ports vga_rst]
+set_property PACKAGE_PIN V17 [get_ports vga_clk_en]
+set_property PACKAGE_PIN U18 [get_ports vga_rst]
+
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]

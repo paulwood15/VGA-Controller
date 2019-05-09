@@ -32,35 +32,30 @@ module Counter #(parameter SIZE = 16, RC = 0, IC = 0, TC = 2**SIZE)
     output reg TC_reached = 0    
     );
     
-    
     //terminal count logic
     always @(negedge clk) begin
-        //only a single clock pulse
-        if (TC_reached == 1'b1)
-            TC_reached <= 1'b0;
-        
-        //is TC reached?
-        if (count == TC)
-            TC_reached <= 1'b1;
+        if (rst) 
+            TC_reached <= 0;
+        else begin
+            //only a single clock pulse
+            if (TC_reached == 1'b1)
+                TC_reached <= 1'b0;
+            
+            //is TC reached?
+            if (count == TC)
+                TC_reached <= 1'b1;
+        end
     end
     
     //clocking logic
     always @(posedge clk) begin
-        if (clk_en) begin
+        if (rst) 
+            count <= IC;
+        else if (clk_en) begin
             if (count < TC)
                 count <= count + 1'b1;
             else 
                 count <= 0;
-        end
-        else 
-            count <= count;
-    end
-    
-    //reset logic
-    always @(posedge clk) begin
-        if (rst) begin
-            count <= IC;
-            TC_reached <= 1'b0; 
         end
     end
     

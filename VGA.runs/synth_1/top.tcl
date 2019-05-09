@@ -17,9 +17,11 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/Paul/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-18236-DESKTOP-O3U78N9/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config  -ruleid {1}  -id {Synth 8-4442}  -string {{CRITICAL WARNING: [Synth 8-4442] BlackBox module \VGA/Color_Palette  has unconnected pin wea[0]}}  -suppress 
+set_msg_config  -ruleid {2}  -id {Synth 8-4442}  -string {{CRITICAL WARNING: [Synth 8-4442] BlackBox module \VGA/Color_Palette  has unconnected pin addra[3]}}  -suppress 
+set_msg_config  -ruleid {3}  -id {Synth 8-4442}  -suppress 
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -31,6 +33,7 @@ set_property parent.project_path C:/Users/Paul/Documents/Git/VGA-Controller/VGA.
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo c:/Users/Paul/Documents/Git/VGA-Controller/VGA.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 add_files C:/Users/Paul/Documents/Git/VGA-Controller/mario_palette.coe
@@ -40,16 +43,16 @@ read_verilog -library xil_defaultlib {
   C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/counter.v
   C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/new/top.v
 }
-read_ip -quiet C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
-
 read_ip -quiet C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_buffer/blk_mem_buffer.xci
 set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_buffer/blk_mem_buffer_ooc.xdc]
 
 read_ip -quiet C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_palette/blk_mem_palette.xci
 set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/blk_mem_palette/blk_mem_palette_ooc.xdc]
+
+read_ip -quiet C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

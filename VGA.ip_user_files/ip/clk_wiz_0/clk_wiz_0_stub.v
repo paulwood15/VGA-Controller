@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Tue May  7 12:27:57 2019
+// Date        : Thu May  9 17:26:22 2019
 // Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               C:/Users/Paul/Documents/VGA/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
+//               C:/Users/Paul/Documents/Git/VGA-Controller/VGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
 // Design      : clk_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
