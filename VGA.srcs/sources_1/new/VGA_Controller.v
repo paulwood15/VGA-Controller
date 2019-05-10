@@ -70,7 +70,7 @@ module VGA_Controller(
                 V_SYNC_START_L      = V_FRONT_PORCH_L,
                 V_SYNC_END_L        = V_FRONT_PORCH_L + V_SYNC_L;
                 
-                
+                    
 //    parameter   H_ACTIVE_C      = 640, 
 //                H_FRONT_PORCH_C = 16,
 //                H_BACK_PORCH_C  = 48,
