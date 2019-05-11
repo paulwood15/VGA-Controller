@@ -1,0 +1,5 @@
+*.mif
+*.str
+.cache/
+.ip_user_files/
+.Xil/
