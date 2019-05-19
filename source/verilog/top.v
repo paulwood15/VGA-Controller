@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 10ns / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -60,15 +60,14 @@ module top(
     
     VGA_Controller VGA 
     (
-        .vga_clk_in(mmcm_vga_clk),
-        .mem_clk_in(mmcm_mem_clk),
-        .vga_clk_en(clk_ready & vga_clk_en),
+        .pxl_clk(mmcm_vga_clk),
+        .pxl_clk_en(clk_ready & vga_clk_en),
         .rst(vga_rst),
-        .o_red(red),
-        .o_grn(green),
-        .o_blu(blue),
-        .Hsync(Hsync),
-        .Vsync(Vsync)
+        .red_o(red),
+        .grn_o(green),
+        .blu_o(blue),
+        .hsync_o(Hsync),
+        .vsync_o(Vsync)
     );
     
 

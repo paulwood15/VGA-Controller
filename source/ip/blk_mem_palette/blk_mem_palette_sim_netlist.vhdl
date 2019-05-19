@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sat May 11 13:44:04 2019
+-- Date        : Fri May 17 14:25:26 2019
 -- Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/blk_mem_palette/blk_mem_palette_sim_netlist.vhdl
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_prim_wrapper_init is
+entity blk_mem_palette_blk_mem_gen_prim_wrapper_init is
   port (
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
@@ -26,10 +26,10 @@ entity blk_mem_paletteblk_mem_gen_prim_wrapper_init is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
-end blk_mem_paletteblk_mem_gen_prim_wrapper_init;
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
+end blk_mem_palette_blk_mem_gen_prim_wrapper_init;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_prim_wrapper_init is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_prim_wrapper_init is
   signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_0\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_1\ : STD_LOGIC;
   signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_10\ : STD_LOGIC;
@@ -59,8 +59,8 @@ architecture STRUCTURE of blk_mem_paletteblk_mem_gen_prim_wrapper_init is
 begin
 \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram\: unisim.vcomponents.RAMB18E1
     generic map(
-      DOA_REG => 1,
-      DOB_REG => 1,
+      DOA_REG => 0,
+      DOB_REG => 0,
       INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -208,7 +208,7 @@ begin
       DOPBDOP(0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_35\,
       ENARDEN => enb,
       ENBWREN => ena,
-      REGCEAREGCE => enb,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -225,7 +225,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_prim_width is
+entity blk_mem_palette_blk_mem_gen_prim_width is
   port (
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
@@ -237,12 +237,12 @@ entity blk_mem_paletteblk_mem_gen_prim_width is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
-end blk_mem_paletteblk_mem_gen_prim_width;
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
+end blk_mem_palette_blk_mem_gen_prim_width;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_prim_width is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_prim_width is
 begin
-\prim_init.ram\: entity work.blk_mem_paletteblk_mem_gen_prim_wrapper_init
+\prim_init.ram\: entity work.blk_mem_palette_blk_mem_gen_prim_wrapper_init
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
@@ -258,7 +258,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_generic_cstr is
+entity blk_mem_palette_blk_mem_gen_generic_cstr is
   port (
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
@@ -270,12 +270,12 @@ entity blk_mem_paletteblk_mem_gen_generic_cstr is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
-end blk_mem_paletteblk_mem_gen_generic_cstr;
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
+end blk_mem_palette_blk_mem_gen_generic_cstr;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_generic_cstr is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_generic_cstr is
 begin
-\ramloop[0].ram.r\: entity work.blk_mem_paletteblk_mem_gen_prim_width
+\ramloop[0].ram.r\: entity work.blk_mem_palette_blk_mem_gen_prim_width
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
@@ -291,7 +291,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_top is
+entity blk_mem_palette_blk_mem_gen_top is
   port (
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
@@ -303,12 +303,12 @@ entity blk_mem_paletteblk_mem_gen_top is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_top : entity is "blk_mem_gen_top";
-end blk_mem_paletteblk_mem_gen_top;
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_top : entity is "blk_mem_gen_top";
+end blk_mem_palette_blk_mem_gen_top;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_top is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_top is
 begin
-\valid.cstr\: entity work.blk_mem_paletteblk_mem_gen_generic_cstr
+\valid.cstr\: entity work.blk_mem_palette_blk_mem_gen_generic_cstr
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
@@ -324,7 +324,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_v8_4_1_synth is
+entity blk_mem_palette_blk_mem_gen_v8_4_1_synth is
   port (
     doutb : out STD_LOGIC_VECTOR ( 11 downto 0 );
     clka : in STD_LOGIC;
@@ -336,12 +336,12 @@ entity blk_mem_paletteblk_mem_gen_v8_4_1_synth is
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
-end blk_mem_paletteblk_mem_gen_v8_4_1_synth;
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
+end blk_mem_palette_blk_mem_gen_v8_4_1_synth;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_v8_4_1_synth is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_v8_4_1_synth is
 begin
-\gnbram.gnativebmg.native_blk_mem_gen\: entity work.blk_mem_paletteblk_mem_gen_top
+\gnbram.gnativebmg.native_blk_mem_gen\: entity work.blk_mem_palette_blk_mem_gen_top
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
@@ -357,7 +357,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity blk_mem_paletteblk_mem_gen_v8_4_1 is
+entity blk_mem_palette_blk_mem_gen_v8_4_1 is
   port (
     clka : in STD_LOGIC;
     rsta : in STD_LOGIC;
@@ -424,158 +424,158 @@ entity blk_mem_paletteblk_mem_gen_v8_4_1 is
     s_axi_rdaddrecc : out STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   attribute C_ADDRA_WIDTH : integer;
-  attribute C_ADDRA_WIDTH of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 4;
+  attribute C_ADDRA_WIDTH of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 4;
   attribute C_ADDRB_WIDTH : integer;
-  attribute C_ADDRB_WIDTH of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 4;
+  attribute C_ADDRB_WIDTH of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 4;
   attribute C_ALGORITHM : integer;
-  attribute C_ALGORITHM of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_ALGORITHM of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 4;
+  attribute C_AXI_ID_WIDTH of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 4;
   attribute C_AXI_SLAVE_TYPE : integer;
-  attribute C_AXI_SLAVE_TYPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_AXI_SLAVE_TYPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_AXI_TYPE : integer;
-  attribute C_AXI_TYPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_AXI_TYPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_BYTE_SIZE : integer;
-  attribute C_BYTE_SIZE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 9;
+  attribute C_BYTE_SIZE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 9;
   attribute C_COMMON_CLK : integer;
-  attribute C_COMMON_CLK of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_COMMON_CLK of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_COUNT_18K_BRAM : string;
-  attribute C_COUNT_18K_BRAM of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "1";
+  attribute C_COUNT_18K_BRAM of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "1";
   attribute C_COUNT_36K_BRAM : string;
-  attribute C_COUNT_36K_BRAM of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "0";
+  attribute C_COUNT_36K_BRAM of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "0";
   attribute C_CTRL_ECC_ALGO : string;
-  attribute C_CTRL_ECC_ALGO of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "NONE";
+  attribute C_CTRL_ECC_ALGO of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "NONE";
   attribute C_DEFAULT_DATA : string;
-  attribute C_DEFAULT_DATA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "0";
+  attribute C_DEFAULT_DATA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "0";
   attribute C_DISABLE_WARN_BHV_COLL : integer;
-  attribute C_DISABLE_WARN_BHV_COLL of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_COLL of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_DISABLE_WARN_BHV_RANGE : integer;
-  attribute C_DISABLE_WARN_BHV_RANGE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_DISABLE_WARN_BHV_RANGE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_ELABORATION_DIR : string;
-  attribute C_ELABORATION_DIR of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "./";
+  attribute C_ELABORATION_DIR of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "./";
   attribute C_ENABLE_32BIT_ADDRESS : integer;
-  attribute C_ENABLE_32BIT_ADDRESS of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_ENABLE_32BIT_ADDRESS of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_DEEPSLEEP_PIN : integer;
-  attribute C_EN_DEEPSLEEP_PIN of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_DEEPSLEEP_PIN of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_ECC_PIPE : integer;
-  attribute C_EN_ECC_PIPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_ECC_PIPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_RDADDRA_CHG : integer;
-  attribute C_EN_RDADDRA_CHG of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_RDADDRA_CHG of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_RDADDRB_CHG : integer;
-  attribute C_EN_RDADDRB_CHG of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_RDADDRB_CHG of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_SAFETY_CKT : integer;
-  attribute C_EN_SAFETY_CKT of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_SAFETY_CKT of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_SHUTDOWN_PIN : integer;
-  attribute C_EN_SHUTDOWN_PIN of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_SHUTDOWN_PIN of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EN_SLEEP_PIN : integer;
-  attribute C_EN_SLEEP_PIN of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_EN_SLEEP_PIN of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "Estimated Power for IP     :     3.0427 mW";
+  attribute C_EST_POWER_SUMMARY of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "Estimated Power for IP     :     3.0427 mW";
   attribute C_FAMILY : string;
-  attribute C_FAMILY of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "artix7";
+  attribute C_FAMILY of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "artix7";
   attribute C_HAS_AXI_ID : integer;
-  attribute C_HAS_AXI_ID of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_AXI_ID of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_HAS_ENA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_HAS_ENB : integer;
-  attribute C_HAS_ENB of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_HAS_ENB of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_HAS_INJECTERR : integer;
-  attribute C_HAS_INJECTERR of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_INJECTERR of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_MUX_OUTPUT_REGS_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_REGCEA : integer;
-  attribute C_HAS_REGCEA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_REGCEA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_REGCEB : integer;
-  attribute C_HAS_REGCEB of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_REGCEB of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_RSTA : integer;
-  attribute C_HAS_RSTA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_RSTA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_RSTB : integer;
-  attribute C_HAS_RSTB of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_RSTB of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_SOFTECC_INPUT_REGS_A : integer;
-  attribute C_HAS_SOFTECC_INPUT_REGS_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_SOFTECC_INPUT_REGS_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_SOFTECC_OUTPUT_REGS_B : integer;
-  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_HAS_SOFTECC_OUTPUT_REGS_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_INITA_VAL : string;
-  attribute C_INITA_VAL of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "0";
+  attribute C_INITA_VAL of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "0";
   attribute C_INITB_VAL : string;
-  attribute C_INITB_VAL of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "0";
+  attribute C_INITB_VAL of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "0";
   attribute C_INIT_FILE : string;
-  attribute C_INIT_FILE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "blk_mem_palette.mem";
+  attribute C_INIT_FILE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "blk_mem_palette.mem";
   attribute C_INIT_FILE_NAME : string;
-  attribute C_INIT_FILE_NAME of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "blk_mem_palette.mif";
+  attribute C_INIT_FILE_NAME of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "blk_mem_palette.mif";
   attribute C_INTERFACE_TYPE : integer;
-  attribute C_INTERFACE_TYPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_INTERFACE_TYPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_LOAD_INIT_FILE : integer;
-  attribute C_LOAD_INIT_FILE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_LOAD_INIT_FILE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_MEM_TYPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_MUX_PIPELINE_STAGES : integer;
-  attribute C_MUX_PIPELINE_STAGES of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_MUX_PIPELINE_STAGES of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_PRIM_TYPE : integer;
-  attribute C_PRIM_TYPE of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_PRIM_TYPE of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_READ_DEPTH_A : integer;
-  attribute C_READ_DEPTH_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 16;
+  attribute C_READ_DEPTH_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 16;
   attribute C_READ_DEPTH_B : integer;
-  attribute C_READ_DEPTH_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 16;
+  attribute C_READ_DEPTH_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 16;
   attribute C_READ_WIDTH_A : integer;
-  attribute C_READ_WIDTH_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 12;
+  attribute C_READ_WIDTH_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 12;
   attribute C_READ_WIDTH_B : integer;
-  attribute C_READ_WIDTH_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 12;
+  attribute C_READ_WIDTH_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 12;
   attribute C_RSTRAM_A : integer;
-  attribute C_RSTRAM_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_RSTRAM_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_RSTRAM_B : integer;
-  attribute C_RSTRAM_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_RSTRAM_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_RST_PRIORITY_A : string;
-  attribute C_RST_PRIORITY_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "CE";
+  attribute C_RST_PRIORITY_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "CE";
   attribute C_RST_PRIORITY_B : string;
-  attribute C_RST_PRIORITY_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "CE";
+  attribute C_RST_PRIORITY_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "CE";
   attribute C_SIM_COLLISION_CHECK : string;
-  attribute C_SIM_COLLISION_CHECK of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "ALL";
+  attribute C_SIM_COLLISION_CHECK of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "ALL";
   attribute C_USE_BRAM_BLOCK : integer;
-  attribute C_USE_BRAM_BLOCK of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_BRAM_BLOCK of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_BYTE_WEA : integer;
-  attribute C_USE_BYTE_WEA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_BYTE_WEA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_BYTE_WEB : integer;
-  attribute C_USE_BYTE_WEB of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_BYTE_WEB of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_DEFAULT_DATA : integer;
-  attribute C_USE_DEFAULT_DATA of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_DEFAULT_DATA of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_ECC : integer;
-  attribute C_USE_ECC of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_ECC of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_SOFTECC : integer;
-  attribute C_USE_SOFTECC of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_SOFTECC of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_USE_URAM : integer;
-  attribute C_USE_URAM of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 0;
+  attribute C_USE_URAM of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_WEA_WIDTH : integer;
-  attribute C_WEA_WIDTH of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_WEA_WIDTH of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_WEB_WIDTH : integer;
-  attribute C_WEB_WIDTH of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_WEB_WIDTH of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 1;
   attribute C_WRITE_DEPTH_A : integer;
-  attribute C_WRITE_DEPTH_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 16;
+  attribute C_WRITE_DEPTH_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 16;
   attribute C_WRITE_DEPTH_B : integer;
-  attribute C_WRITE_DEPTH_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 16;
+  attribute C_WRITE_DEPTH_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 16;
   attribute C_WRITE_MODE_A : string;
-  attribute C_WRITE_MODE_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "READ_FIRST";
+  attribute C_WRITE_MODE_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "READ_FIRST";
   attribute C_WRITE_MODE_B : string;
-  attribute C_WRITE_MODE_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "READ_FIRST";
+  attribute C_WRITE_MODE_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "READ_FIRST";
   attribute C_WRITE_WIDTH_A : integer;
-  attribute C_WRITE_WIDTH_A of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 12;
+  attribute C_WRITE_WIDTH_A of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 12;
   attribute C_WRITE_WIDTH_B : integer;
-  attribute C_WRITE_WIDTH_B of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is 12;
+  attribute C_WRITE_WIDTH_B of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is 12;
   attribute C_XDEVICEFAMILY : string;
-  attribute C_XDEVICEFAMILY of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "artix7";
+  attribute C_XDEVICEFAMILY of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "artix7";
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
+  attribute ORIG_REF_NAME of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
   attribute downgradeipidentifiedwarnings : string;
-  attribute downgradeipidentifiedwarnings of blk_mem_paletteblk_mem_gen_v8_4_1 : entity is "yes";
-end blk_mem_paletteblk_mem_gen_v8_4_1;
+  attribute downgradeipidentifiedwarnings of blk_mem_palette_blk_mem_gen_v8_4_1 : entity is "yes";
+end blk_mem_palette_blk_mem_gen_v8_4_1;
 
-architecture STRUCTURE of blk_mem_paletteblk_mem_gen_v8_4_1 is
+architecture STRUCTURE of blk_mem_palette_blk_mem_gen_v8_4_1 is
   signal \<const0>\ : STD_LOGIC;
 begin
   dbiterr <= \<const0>\;
@@ -638,7 +638,7 @@ GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
     );
-inst_blk_mem_gen: entity work.blk_mem_paletteblk_mem_gen_v8_4_1_synth
+inst_blk_mem_gen: entity work.blk_mem_palette_blk_mem_gen_v8_4_1_synth
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
@@ -758,7 +758,7 @@ architecture STRUCTURE of blk_mem_palette is
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
   attribute C_HAS_MUX_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
@@ -858,12 +858,12 @@ architecture STRUCTURE of blk_mem_palette is
   attribute x_interface_info of doutb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT";
   attribute x_interface_info of wea : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA WE";
 begin
-U0: entity work.blk_mem_paletteblk_mem_gen_v8_4_1
+U0: entity work.blk_mem_palette_blk_mem_gen_v8_4_1
      port map (
       addra(3 downto 0) => addra(3 downto 0),
       addrb(3 downto 0) => addrb(3 downto 0),
       clka => clka,
-      clkb => '0',
+      clkb => clkb,
       dbiterr => NLW_U0_dbiterr_UNCONNECTED,
       deepsleep => '0',
       dina(11 downto 0) => dina(11 downto 0),

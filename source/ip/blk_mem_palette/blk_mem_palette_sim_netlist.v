@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat May 11 13:44:04 2019
+// Date        : Fri May 17 14:25:26 2019
 // Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/blk_mem_palette/blk_mem_palette_sim_netlist.v
@@ -37,6 +37,7 @@ module blk_mem_palette
   wire [3:0]addra;
   wire [3:0]addrb;
   wire clka;
+  wire clkb;
   wire [11:0]dina;
   wire [11:0]doutb;
   wire ena;
@@ -93,7 +94,7 @@ module blk_mem_palette
   (* C_HAS_ENB = "1" *) 
   (* C_HAS_INJECTERR = "0" *) 
   (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_B = "1" *) 
+  (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_REGCEA = "0" *) 
@@ -137,11 +138,11 @@ module blk_mem_palette
   (* C_WRITE_WIDTH_B = "12" *) 
   (* C_XDEVICEFAMILY = "artix7" *) 
   (* downgradeipidentifiedwarnings = "yes" *) 
-  blk_mem_paletteblk_mem_gen_v8_4_1 U0
+  blk_mem_palette_blk_mem_gen_v8_4_1 U0
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
-        .clkb(1'b0),
+        .clkb(clkb),
         .dbiterr(NLW_U0_dbiterr_UNCONNECTED),
         .deepsleep(1'b0),
         .dina(dina),
@@ -204,7 +205,7 @@ module blk_mem_palette
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
-module blk_mem_paletteblk_mem_gen_generic_cstr
+module blk_mem_palette_blk_mem_gen_generic_cstr
    (doutb,
     clka,
     enb,
@@ -231,7 +232,7 @@ module blk_mem_paletteblk_mem_gen_generic_cstr
   wire enb;
   wire [0:0]wea;
 
-  blk_mem_paletteblk_mem_gen_prim_width \ramloop[0].ram.r 
+  blk_mem_palette_blk_mem_gen_prim_width \ramloop[0].ram.r 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -243,7 +244,7 @@ module blk_mem_paletteblk_mem_gen_generic_cstr
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
-module blk_mem_paletteblk_mem_gen_prim_width
+module blk_mem_palette_blk_mem_gen_prim_width
    (doutb,
     clka,
     enb,
@@ -270,7 +271,7 @@ module blk_mem_paletteblk_mem_gen_prim_width
   wire enb;
   wire [0:0]wea;
 
-  blk_mem_paletteblk_mem_gen_prim_wrapper_init \prim_init.ram 
+  blk_mem_palette_blk_mem_gen_prim_wrapper_init \prim_init.ram 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -282,7 +283,7 @@ module blk_mem_paletteblk_mem_gen_prim_width
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
-module blk_mem_paletteblk_mem_gen_prim_wrapper_init
+module blk_mem_palette_blk_mem_gen_prim_wrapper_init
    (doutb,
     clka,
     enb,
@@ -335,8 +336,8 @@ module blk_mem_paletteblk_mem_gen_prim_wrapper_init
 
   (* box_type = "PRIMITIVE" *) 
   RAMB18E1 #(
-    .DOA_REG(1),
-    .DOB_REG(1),
+    .DOA_REG(0),
+    .DOB_REG(0),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -449,7 +450,7 @@ module blk_mem_paletteblk_mem_gen_prim_wrapper_init
         .DOPBDOP({\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_34 ,\DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram_n_35 }),
         .ENARDEN(enb),
         .ENBWREN(ena),
-        .REGCEAREGCE(enb),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -460,7 +461,7 @@ module blk_mem_paletteblk_mem_gen_prim_wrapper_init
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_top" *) 
-module blk_mem_paletteblk_mem_gen_top
+module blk_mem_palette_blk_mem_gen_top
    (doutb,
     clka,
     enb,
@@ -487,7 +488,7 @@ module blk_mem_paletteblk_mem_gen_top
   wire enb;
   wire [0:0]wea;
 
-  blk_mem_paletteblk_mem_gen_generic_cstr \valid.cstr 
+  blk_mem_palette_blk_mem_gen_generic_cstr \valid.cstr 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -508,7 +509,7 @@ endmodule
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     3.0427 mW" *) 
 (* C_FAMILY = "artix7" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "1" *) 
 (* C_HAS_ENB = "1" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
-(* C_HAS_MEM_OUTPUT_REGS_B = "1" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
+(* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "blk_mem_palette.mem" *) 
@@ -523,7 +524,7 @@ endmodule
 (* C_WRITE_DEPTH_A = "16" *) (* C_WRITE_DEPTH_B = "16" *) (* C_WRITE_MODE_A = "READ_FIRST" *) 
 (* C_WRITE_MODE_B = "READ_FIRST" *) (* C_WRITE_WIDTH_A = "12" *) (* C_WRITE_WIDTH_B = "12" *) 
 (* C_XDEVICEFAMILY = "artix7" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
-module blk_mem_paletteblk_mem_gen_v8_4_1
+module blk_mem_palette_blk_mem_gen_v8_4_1
    (clka,
     rsta,
     ena,
@@ -719,7 +720,7 @@ module blk_mem_paletteblk_mem_gen_v8_4_1
   assign sbiterr = \<const0> ;
   GND GND
        (.G(\<const0> ));
-  blk_mem_paletteblk_mem_gen_v8_4_1_synth inst_blk_mem_gen
+  blk_mem_palette_blk_mem_gen_v8_4_1_synth inst_blk_mem_gen
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),
@@ -731,7 +732,7 @@ module blk_mem_paletteblk_mem_gen_v8_4_1
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
-module blk_mem_paletteblk_mem_gen_v8_4_1_synth
+module blk_mem_palette_blk_mem_gen_v8_4_1_synth
    (doutb,
     clka,
     enb,
@@ -758,7 +759,7 @@ module blk_mem_paletteblk_mem_gen_v8_4_1_synth
   wire enb;
   wire [0:0]wea;
 
-  blk_mem_paletteblk_mem_gen_top \gnbram.gnativebmg.native_blk_mem_gen 
+  blk_mem_palette_blk_mem_gen_top \gnbram.gnativebmg.native_blk_mem_gen 
        (.addra(addra),
         .addrb(addrb),
         .clka(clka),

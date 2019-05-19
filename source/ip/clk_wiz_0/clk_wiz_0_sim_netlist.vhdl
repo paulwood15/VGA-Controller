@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sat May 11 13:44:29 2019
+-- Date        : Sat May 18 23:02:49 2019
 -- Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity clk_wiz_0clk_wiz_0_clk_wiz is
+entity clk_wiz_0_clk_wiz_0_clk_wiz is
   port (
     vga_clk : out STD_LOGIC;
     mem_clk : out STD_LOGIC;
@@ -23,10 +23,10 @@ entity clk_wiz_0clk_wiz_0_clk_wiz is
     clk_in1 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of clk_wiz_0clk_wiz_0_clk_wiz : entity is "clk_wiz_0_clk_wiz";
-end clk_wiz_0clk_wiz_0_clk_wiz;
+  attribute ORIG_REF_NAME of clk_wiz_0_clk_wiz_0_clk_wiz : entity is "clk_wiz_0_clk_wiz";
+end clk_wiz_0_clk_wiz_0_clk_wiz;
 
-architecture STRUCTURE of clk_wiz_0clk_wiz_0_clk_wiz is
+architecture STRUCTURE of clk_wiz_0_clk_wiz_0_clk_wiz is
   signal clk_in1_clk_wiz_0 : STD_LOGIC;
   signal clkfbout_buf_clk_wiz_0 : STD_LOGIC;
   signal clkfbout_clk_wiz_0 : STD_LOGIC;
@@ -47,18 +47,18 @@ architecture STRUCTURE of clk_wiz_0clk_wiz_0_clk_wiz is
   signal NLW_mmcm_adv_inst_DRDY_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_PSDONE_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_DO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
-  attribute box_type : string;
-  attribute box_type of clkf_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE : string;
+  attribute BOX_TYPE of clkf_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkin1_ibufg : label is "PRIMITIVE";
   attribute CAPACITANCE : string;
   attribute CAPACITANCE of clkin1_ibufg : label is "DONT_CARE";
   attribute IBUF_DELAY_VALUE : string;
   attribute IBUF_DELAY_VALUE of clkin1_ibufg : label is "0";
   attribute IFD_DELAY_VALUE : string;
   attribute IFD_DELAY_VALUE of clkin1_ibufg : label is "AUTO";
-  attribute box_type of clkin1_ibufg : label is "PRIMITIVE";
-  attribute box_type of clkout1_buf : label is "PRIMITIVE";
-  attribute box_type of clkout2_buf : label is "PRIMITIVE";
-  attribute box_type of mmcm_adv_inst : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkout1_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of clkout2_buf : label is "PRIMITIVE";
+  attribute BOX_TYPE of mmcm_adv_inst : label is "PRIMITIVE";
 begin
 clkf_buf: unisim.vcomponents.BUFG
      port map (
@@ -86,16 +86,16 @@ clkout2_buf: unisim.vcomponents.BUFG
 mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT_F => 10.000000,
+      CLKFBOUT_MULT_F => 9.000000,
       CLKFBOUT_PHASE => 0.000000,
       CLKFBOUT_USE_FINE_PS => false,
       CLKIN1_PERIOD => 10.000000,
       CLKIN2_PERIOD => 0.000000,
-      CLKOUT0_DIVIDE_F => 40.000000,
+      CLKOUT0_DIVIDE_F => 35.750000,
       CLKOUT0_DUTY_CYCLE => 0.500000,
       CLKOUT0_PHASE => 0.000000,
       CLKOUT0_USE_FINE_PS => false,
-      CLKOUT1_DIVIDE => 10,
+      CLKOUT1_DIVIDE => 9,
       CLKOUT1_DUTY_CYCLE => 0.500000,
       CLKOUT1_PHASE => 45.000000,
       CLKOUT1_USE_FINE_PS => false,
@@ -188,7 +188,7 @@ end clk_wiz_0;
 
 architecture STRUCTURE of clk_wiz_0 is
 begin
-inst: entity work.clk_wiz_0clk_wiz_0_clk_wiz
+inst: entity work.clk_wiz_0_clk_wiz_0_clk_wiz
      port map (
       clk_in1 => clk_in1,
       locked => locked,

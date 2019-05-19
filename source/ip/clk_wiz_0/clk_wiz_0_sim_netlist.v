@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sat May 11 13:44:29 2019
+// Date        : Sat May 18 23:02:49 2019
 // Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
@@ -31,7 +31,7 @@ module clk_wiz_0
   wire reset;
   wire vga_clk;
 
-  clk_wiz_0clk_wiz_0_clk_wiz inst
+  clk_wiz_0_clk_wiz_0_clk_wiz inst
        (.clk_in1(clk_in1),
         .locked(locked),
         .mem_clk(mem_clk),
@@ -40,7 +40,7 @@ module clk_wiz_0
 endmodule
 
 (* ORIG_REF_NAME = "clk_wiz_0_clk_wiz" *) 
-module clk_wiz_0clk_wiz_0_clk_wiz
+module clk_wiz_0_clk_wiz_0_clk_wiz
    (vga_clk,
     mem_clk,
     reset,
@@ -78,40 +78,40 @@ module clk_wiz_0clk_wiz_0_clk_wiz
   wire NLW_mmcm_adv_inst_PSDONE_UNCONNECTED;
   wire [15:0]NLW_mmcm_adv_inst_DO_UNCONNECTED;
 
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkf_buf
        (.I(clkfbout_clk_wiz_0),
         .O(clkfbout_buf_clk_wiz_0));
+  (* BOX_TYPE = "PRIMITIVE" *) 
   (* CAPACITANCE = "DONT_CARE" *) 
   (* IBUF_DELAY_VALUE = "0" *) 
   (* IFD_DELAY_VALUE = "AUTO" *) 
-  (* box_type = "PRIMITIVE" *) 
   IBUF #(
     .IOSTANDARD("DEFAULT")) 
     clkin1_ibufg
        (.I(clk_in1),
         .O(clk_in1_clk_wiz_0));
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout1_buf
        (.I(vga_clk_clk_wiz_0),
         .O(vga_clk));
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   BUFG clkout2_buf
        (.I(mem_clk_clk_wiz_0),
         .O(mem_clk));
-  (* box_type = "PRIMITIVE" *) 
+  (* BOX_TYPE = "PRIMITIVE" *) 
   MMCME2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT_F(10.000000),
+    .CLKFBOUT_MULT_F(9.000000),
     .CLKFBOUT_PHASE(0.000000),
     .CLKFBOUT_USE_FINE_PS("FALSE"),
     .CLKIN1_PERIOD(10.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE_F(40.000000),
+    .CLKOUT0_DIVIDE_F(35.750000),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
     .CLKOUT0_USE_FINE_PS("FALSE"),
-    .CLKOUT1_DIVIDE(10),
+    .CLKOUT1_DIVIDE(9),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(45.000000),
     .CLKOUT1_USE_FINE_PS("FALSE"),
