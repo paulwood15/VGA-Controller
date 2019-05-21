@@ -1,0 +1,9 @@
+05/21/2019
+--------------------------------
+> Added log.txt
+> TODO:
+    <> Pick flash IC
+    <> Pick RAM DDR2 ICs
+    <> Create PMOD port flash and RAM addon PCB that use standard connections
+    <> Create standard DDR2 SODIMM PCB RAM module
+    <> Create standard (if exists) flash PCB module 
