@@ -1,9 +1,58 @@
-05/21/2019
---------------------------------
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    [] Pick RAM DDR2 ICs
+    [] Create PMOD port flash and RAM addon PCB that use SODIMM and M.2
+    [] Create standard DDR2 SODIMM PCB RAM module
+    [] Build controllers 
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TO BUY:
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+DDR2 IC contendors:
+    1) https://www.digikey.com/product-detail/en/micron-technology-inc/MT47H256M8EB-25E-C/557-1588-ND/2663712
+        i) $17.85
+        ii) 258x8
+    2) https://www.digikey.com/product-detail/en/issi-integrated-silicon-solution-inc/IS43DR82560C-25DBL/706-1570-ND/6202046
+        i) $9.89
+        ii) 258x8
+    3) https://www.digikey.com/product-detail/en/micron-technology-inc/MT47H128M16RT-25E-C-TR/557-1919-1-ND/9673900
+        i) $15.69
+        ii) 128x16
+    4) https://www.digikey.com/products/en?mpart=IS43DR16128C-25DBL&v=706
+        i) $9.60
+        ii) 128x16
+
+DC-DC step down converter contendors:
+    1) https://www.analog.com/en/products/adp2138.html#product-overview
+        i) not synchronous 
+        ii) 800mA
+        iii) 95% efficiency
+    2) https://www.analog.com/en/products/ltc3621.html#product-overview
+        i) synchronous
+        ii) 1A
+        iii) 95% efficiency
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+LOG
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+05.25.2019
+--------------
+> Tried looking into making a SATA and AHCI controller, but it wouldn't be doable. Going to stick with SPI flash and DDR2.
+    >> PMOD ports output 3V3 max 1.0A and will need to be steped down to 1.8 +-1% for DDR2 and probably flash as well. Use a huge capacitor bank!
+    >> There are specific power-on sequences that must be followed to avoid latchup or high inrush currents - DDR doesn't look at complicated at the FPGA power design and nexys uses asynchronous for ddr
+    >> DDR2: once voltage sequence is complete, certain instructions need to be run before anything can be read/written
+    >> Refer to Nexys and basys schematics 
+    >> Nexys DDR2 capacitor bank:
+        2 - 4.7nF
+        4 - 10nF
+        4 - 47nF
+        6 - 470nF
+
+> Might attempt to do a SODIMM DDR2 board but it would require 4 ICs ($$) for single ranked 
+    >> If I do this then I will need to choose ICs that are x16
+
+05.21.2019
+--------------
 > Added log.txt
-> TODO:
-    <> Pick flash IC
-    <> Pick RAM DDR2 ICs
-    <> Create PMOD port flash and RAM addon PCB that use standard connections
-    <> Create standard DDR2 SODIMM PCB RAM module
-    <> Create standard (if exists) flash PCB module 
