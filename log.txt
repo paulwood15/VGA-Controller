@@ -42,7 +42,7 @@ LOG
 > Tried looking into making a SATA and AHCI controller, but it wouldn't be doable. Going to stick with SPI flash and DDR2.
     >> PMOD ports output 3V3 max 1.0A and will need to be steped down to 1.8 +-1% for DDR2 and probably flash as well. Use a huge capacitor bank!
     >> There are specific power-on sequences that must be followed to avoid latchup or high inrush currents - DDR doesn't look at complicated at the FPGA power design and nexys uses asynchronous for ddr
-    >> DDR2: once voltage sequence is complete, certain instructions need to be run before anything can be read/written
+    >> DDR2: once voltage sequence is complete , certain instructions need to be run before anything can be read/written
     >> Refer to Nexys and basys schematics 
     >> Nexys DDR2 capacitor bank:
         2 - 4.7nF

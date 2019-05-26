@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Fri May 17 14:25:26 2019
-// Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
+// Date        : Sun May 26 16:45:53 2019
+// Host        : DESKTOP-E4CP06Q running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/blk_mem_palette/blk_mem_palette_sim_netlist.v
+//               C:/Users/904pa/Documents/Git/VGA-Controller/source/ip/blk_mem_palette/blk_mem_palette_sim_netlist.v
 // Design      : blk_mem_palette
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

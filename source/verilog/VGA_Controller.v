@@ -36,9 +36,6 @@ module VGA_Controller(
                 BLUE    = 12'h00F,
                 BLACK   = 12'h000;        
     
-    parameter   FRAME_COUNTER_SIZE  = 10,
-                BUF_ADDR_SIZE       = $clog2(H_RES*V_RES);
-    
     
     // VGA timings for 640x480 resolution
     // H: horizontal, V: vertical
@@ -79,8 +76,13 @@ module VGA_Controller(
 //                V_LENGTH_L      = V_ACTIVE_L + V_FRONT_PORCH_L + V_BACK_PORCH_L + V_SYNC_L,
 //                V_SYNC_START_L  = V_ACTIVE_L + V_FRONT_PORCH_L,
 //                V_SYNC_END_L    = V_ACTIVE_L + V_FRONT_PORCH_L + V_SYNC_L;
-                
-    
+
+
+    // Controller parameters
+    parameter   FRAME_COUNTER_SIZE  = 10,
+                BUF_ADDR_SIZE       = $clog2(H_RES*V_RES),
+                BUF_CLK_DLYS        = 32;
+
     // RAM parameters
     parameter   PALETTE_WORD_WIDTH      = 12,
                 PALETTE_SIZE            = 16,
@@ -108,30 +110,30 @@ module VGA_Controller(
     end
     
 /********************************************************************
-                        PIPELINE WIRES AND REGS
+                        NAME ME
 *********************************************************************/
-    reg hsync_P0, hsync_P1, hsync_P2, hsync_P3, hsync_P4;
-    reg vsync_P0, vsync_P1, vsync_P2, vsync_P3, vsync_P4;
-    reg active_P0, active_P1, active_P2, active_P3;
-    //reg [BUF_ADDR_SIZE - 1 : 0] buffer_addr_P1;
-    //reg [$clog2(PALETTE_SIZE) - 1 : 0] buffer_data_P2;
-    reg [3:0] red_P4;
-    reg [3:0] grn_P4;
-    reg [3:0] blu_P4;
+    // {hsync, vsync, active}
+    reg shreg_hsync_dly [BUF_CLK_DLYS - 1 : 0];
+    reg shreg_vsync_dly [BUF_CLK_DLYS - 1 : 0];
+    reg shreg_active_dly [BUF_CLK_DLYS - 1 : 0];
 
-    wire hysnc_cmb;
+    reg [3:0] red;
+    reg [3:0] grn;
+    reg [3:0] blu;
+
+    wire hsync_cmb;
     wire vsync_cmb;
     wire active_cmb;
 
-    assign hysnc_cmb = ((x_pos >= H_SYNC_START_C) & (x_pos < H_SYNC_END_C)) ? 0 : 1;
+    assign hsync_cmb = ((x_pos >= H_SYNC_START_C) & (x_pos < H_SYNC_END_C)) ? 0 : 1;
     assign vsync_cmb = ((y_pos >= V_SYNC_START_L) & (y_pos < V_SYNC_END_L)) ? 0 : 1;
     assign active_cmb = (x_pos < H_RES) & (y_pos < V_RES);
 
-    assign hsync_o = hsync_P4;
-    assign vsync_o = vsync_P4;
-    assign red_o = red_P4;
-    assign grn_o = grn_P4;
-    assign blu_o = blu_P4;
+    assign hsync_o = shreg_hsync_dly[BUF_CLK_DLYS - 1];
+    assign vsync_o = shreg_vsync_dly[BUF_CLK_DLYS - 1];
+    assign red_o = red;
+    assign grn_o = grn;
+    assign blu_o = blu;
 
 /********************************************************************
                         PIPELINE SEQUENTIAL LOGIC
@@ -139,55 +141,26 @@ module VGA_Controller(
     always @(posedge pxl_clk) begin
         // if reset asserted, reset all pipeline regs and counters
         if (rst) begin
-            hsync_P0 <= 1;
-            hsync_P1 <= 1;
-            hsync_P2 <= 1;
-            hsync_P3 <= 1;
-            hsync_P4 <= 1;
-
-            vsync_P0 <= 1;
-            vsync_P1 <= 1;
-            vsync_P2 <= 1;
-            vsync_P3 <= 1;
-            vsync_P4 <= 1;
-
-            active_P0 <= 0;
-            active_P1 <= 0;
-            active_P2 <= 0;
-            active_P3 <= 0;
-
-            red_P4 <= 0;
-            grn_P4 <= 0;
-            blu_P4 <= 0;
+            //shreg_hsync_dly <= {BUF_CLK_DLYS{1'b0}};
+            //shreg_vsync_dly <= {BUF_CLK_DLYS{1'b0}};
+            //shreg_active_dly <= {BUF_CLK_DLYS{1'b0}};
         end
-        else if (sync_en) begin
-            //frame counters & combinational logic --> pipeline stage: 0
-            hsync_P0 <= hysnc_cmb;
-            vsync_P0 <= vsync_cmb;
-            active_P0 <= active_cmb;
+        else if (sync_en) begin: DLY_SHREGS
+            shreg_hsync_dly <= {shreg_hsync_dly[BUF_CLK_DLYS - 2 : 0], hsync_cmb};
+            shreg_vsync_dly <= {shreg_vsync_dly[BUF_CLK_DLYS - 2 : 0], vsync_cmb};
+            shreg_active_dly <= {shreg_active_dly[BUF_CLK_DLYS - 2 : 0], active_cmb};
 
-            //stage 0 --> stage 1
-            hsync_P1 <= hsync_P0;
-            vsync_P1 <= vsync_P0;
-            active_P1 <= active_P0;
-
-            //stage 1 --> stage 2
-            hsync_P2 <= hsync_P1;
-            vsync_P2 <= vsync_P1;
-            active_P2 <= active_P1;
-
-            //stage 2 --> stage 3
-            hsync_P3 <= hsync_P2;
-            vsync_P3 <= vsync_P2;
-            active_P3 <= active_P2;
-
-            //stage 3 --> stage 4
-            hsync_P4 <= hsync_P3;
-            vsync_P4 <= vsync_P3;
-            {red_P4, grn_P4, blu_P4} <= (active_P3) ? palette_out : GREEN;
-
+            {red, blu, grn} <= palette_out;
         end
     end
+    
+
+    DYN_SHREG #(.SELWIDTH(2)) shreg_hsync_dly
+        (
+            .clk(pxl_clk),
+            .clk_en(pxl_clk_en)
+        );
+
 
     // Initial Count is H_RES so that the blanking and sync signals will go first
     Counter #(.SIZE(10), .RC(0), .IC(H_RES), .TC(H_WIDTH_C - 1)) H_Counter 
@@ -212,7 +185,7 @@ module VGA_Controller(
     Counter #(.SIZE(BUF_ADDR_SIZE), .RC(0), .IC(0), .TC(H_RES*V_RES - 1)) Buffer_ADDR_Counter
         (
             .clk(pxl_clk),
-            .clk_en(active_P0),
+            .clk_en(shreg_active_dly[0]),
             .rst(rst),
             .count(addr_counter_to_frame_buff),
             .TC_reached()

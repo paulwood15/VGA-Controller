@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sat May 18 22:00:39 2019
--- Host        : DESKTOP-O3U78N9 running 64-bit major release  (build 9200)
+-- Date        : Sun May 26 16:44:24 2019
+-- Host        : DESKTOP-E4CP06Q running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               C:/Users/Paul/Documents/Git/VGA-Controller/source/ip/blk_mem_buffer/blk_mem_buffer_sim_netlist.vhdl
+--               C:/Users/904pa/Documents/Git/VGA-Controller/source/ip/blk_mem_buffer/blk_mem_buffer_sim_netlist.vhdl
 -- Design      : blk_mem_buffer
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
